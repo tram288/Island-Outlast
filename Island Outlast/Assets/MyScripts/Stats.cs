@@ -17,6 +17,8 @@ public class Stats : MonoBehaviour
     public float drinkEnergy;
 
     public Text deathNote;
+    public GameObject gameOver;
+    public GameObject player;
     
 
     Rigidbody body;
@@ -41,11 +43,16 @@ public class Stats : MonoBehaviour
         UpdateUI();
 
         if (hunger <= 0){
-            //Destroy (gameObject.CompareTag("Player"));
+            Destroy (player);
+            gameOver.SetActive(true);
             deathNote.text = "You died of starvation";
+            enabled = false;
         }
-        if (thirst <= 0){
+        else if (thirst <= 0){
+            Destroy (player);
+            gameOver.SetActive(true);
             deathNote.text = "You died of thirst";
+            enabled = false;
         }
     }
       public void UpdateUI(){
