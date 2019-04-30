@@ -13,8 +13,8 @@ public class Stats : MonoBehaviour
     public Slider hungerBar;
     public Slider thirstBar;
 
-    public float foodEnergy;
-    public float drinkEnergy;
+    //public float foodEnergy;
+    //public float drinkEnergy;
 
     public Text deathNote;
     public GameObject gameOver;
@@ -64,17 +64,28 @@ public class Stats : MonoBehaviour
 
     }
 
-       void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag ("food")){
-            hunger += hungerOverTime * foodEnergy;
-            UpdateUI();
-        }
+    //   void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag ("food")){
+    //        hunger += hungerOverTime * foodEnergy;
+    //        UpdateUI();
+    //    }
 
-         if (other.gameObject.CompareTag ("drink")){
-            thirst += thirstOverTime * drinkEnergy;
-            UpdateUI();
-        }
+    //     if (other.gameObject.CompareTag ("drink")){
+    //        thirst += thirstOverTime * drinkEnergy;
+    //        UpdateUI();
+    //    }
+    //}
+
+    public void ChangeEat (float changeHunger)
+    {
+        hunger += hungerOverTime * changeHunger;
+        UpdateUI();
+    }
+    public void ChangeDrink (float changeThirst)
+    {
+        thirst += thirstOverTime * changeThirst;
+        UpdateUI();  
     }
    
 
