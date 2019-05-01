@@ -46,13 +46,13 @@ public class Stats : MonoBehaviour
             Destroy (player);
             gameOver.SetActive(true);
             deathNote.text = "You died of starvation";
-            enabled = false;
+            GameStop();
         }
         else if (thirst <= 0){
             Destroy (player);
             gameOver.SetActive(true);
             deathNote.text = "You died of thirst";
-            enabled = false;
+            GameStop();
         }
     }
       public void UpdateUI(){
@@ -86,6 +86,9 @@ public class Stats : MonoBehaviour
     {
         thirst += thirstOverTime * changeThirst;
         UpdateUI();  
+    }
+    public void GameStop(){
+        enabled = false;
     }
    
 
