@@ -12,13 +12,17 @@ public class CameraPOV : MonoBehaviour
 
     void Start()
     {
+      if (PlayerTransform != null){
         cameraOffset = transform.position - PlayerTransform.position;
+      }
     }
 
     
     void LateUpdate()
     {
+      if (PlayerTransform != null){
       Vector3 newPos = PlayerTransform.position + cameraOffset;  
       transform.position = Vector3.Slerp(transform.position, newPos, SmoothFactor);
+      }
     }
 }
